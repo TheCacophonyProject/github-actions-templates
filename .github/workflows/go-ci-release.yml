@@ -59,4 +59,4 @@ jobs:
           version: '~> v2'
           args: release --clean
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure this is passed by the calling workflow
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
