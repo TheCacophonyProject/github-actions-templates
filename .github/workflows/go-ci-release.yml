@@ -31,6 +31,12 @@ jobs:
       - name: Run Staticcheck
         run: staticcheck --checks="all,-ST1000,-ST1022,-ST1020,-ST1003" ./...
 
+      - name: Install yamllint
+        run: sudo apt-get install -y yamllint
+
+      - name: Lint YAML
+        run: 'yamllint -d "{extends: default, rules: {line-length: disable, truthy: disable}, ignore: dist/*}" .'
+
       - name: Check for Uncommitted Changes
         run: |
           git diff --exit-code || (
